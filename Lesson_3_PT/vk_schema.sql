@@ -92,4 +92,13 @@ CREATE TABLE media (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
 ) COMMENT "Медиафайлы";
 
+-- Таблица типов медиафайлов
+DROP TABLE IF EXISTS media_types;
+CREATE TABLE media_types (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки",
+  name VARCHAR(255) NOT NULL UNIQUE COMMENT "Название типа",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
+) COMMENT "Типы медиафайлов";
+
 

@@ -39,3 +39,16 @@ CREATE TABLE messages (
   created_at DATETIME DEFAULT NOW() COMMENT "Время создания строки"
 ) COMMENT "Сообщения";
 
+-- Таблица дружбы
+DROP TABLE IF EXISTS friendship;
+CREATE TABLE friendship (
+  user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на инициатора дружеских отношений",
+  friend_id INT UNSIGNED NOT NULL COMMENT "Ссылка на получателя приглашения дружить",
+  status_id INT UNSIGNED NOT NULL COMMENT "Ссылка на статус (текущее состояние) отношений",
+  requested_at DATETIME DEFAULT NOW() COMMENT "Время отправления приглашения дружить",
+  confirmed_at DATETIME COMMENT "Время подтверждения приглашения",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки",  
+  PRIMARY KEY (user_id, friend_id) COMMENT "Составной первичный ключ"
+) COMMENT "Таблица дружбы";
+

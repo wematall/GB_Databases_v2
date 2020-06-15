@@ -61,4 +61,13 @@ CREATE TABLE friendship_statuses (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"  
 ) COMMENT "Статусы дружбы";
 
+-- Таблица групп
+DROP TABLE IF EXISTS communities;
+CREATE TABLE communities (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор сроки",
+  name VARCHAR(150) NOT NULL UNIQUE COMMENT "Название группы",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"  
+) COMMENT "Группы";
+
 

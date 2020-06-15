@@ -52,3 +52,13 @@ CREATE TABLE friendship (
   PRIMARY KEY (user_id, friend_id) COMMENT "Составной первичный ключ"
 ) COMMENT "Таблица дружбы";
 
+-- Таблица статусов дружеских отношений
+DROP TABLE IF EXISTS friendship_statuses;
+CREATE TABLE friendship_statuses (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки",
+  name VARCHAR(150) NOT NULL UNIQUE COMMENT "Название статуса",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"  
+) COMMENT "Статусы дружбы";
+
+

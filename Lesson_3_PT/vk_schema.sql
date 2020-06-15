@@ -70,4 +70,13 @@ CREATE TABLE communities (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"  
 ) COMMENT "Группы";
 
+-- Таблица связи пользователей и групп
+DROP TABLE IF EXISTS communities_users;
+CREATE TABLE communities_users (
+  community_id INT UNSIGNED NOT NULL COMMENT "Ссылка на группу",
+  user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на пользователя",
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки", 
+  PRIMARY KEY (community_id, user_id) COMMENT "Составной первичный ключ"
+) COMMENT "Участники групп, связь между пользователями и группами";
+
 
